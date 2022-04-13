@@ -1,8 +1,8 @@
-@use 'node_modules/@blackbaud/skyux-design-tokens/scss/mixins' as tokensMixins;
+@use 'node_modules/@blackbaud/skyux-design-tokens/scss/mixins' as *;
 
 .sky-elevation-0-bordered,
 .sky-elevation-1-bordered {
-  @include tokensMixins.sky-border(dark, top, bottom, left, right);
+  @include sky-border(dark, top, bottom, left, right);
 }
 
 .sky-elevation-1,

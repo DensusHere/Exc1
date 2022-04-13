@@ -1,29 +1,28 @@
 @forward 'node_modules/@blackbaud/skyux-design-tokens/scss/themes/modern/variables';
 
-@use 'node_modules/@blackbaud/skyux-design-tokens/scss/variables' as
-  defaultTokensVars;
+@use 'node_modules/@blackbaud/skyux-design-tokens/scss/variables' as *;
 @use 'node_modules/@blackbaud/skyux-design-tokens/scss/themes/modern/variables'
-  as modernTokensVars;
+  as *;
 
-@use '../../../_compat/variables' as defaultCompatVars;
-@use '../../../mixins' as defaultPublicMixins;
+@use '../../../_compat/variables' as *;
+@use '../../../mixins' as *;
 
-@use 'variables' as modernCompatVars;
+@use 'variables' as *;
 
 @mixin sky-theme-modern-button-variant(
   $color,
   $background,
   $border,
   $hover-border,
-  $padding: modernTokensVars.$sky-theme-modern-padding-button-standard
+  $padding: $sky-theme-modern-padding-button-standard
 ) {
-  @include defaultPublicMixins.sky-theme-modern-border($border);
+  @include sky-theme-modern-border($border);
   background-color: $background;
   color: $color;
-  padding: defaultPublicMixins.sky-theme-modern-border-padding($padding);
+  padding: sky-theme-modern-border-padding($padding);
 
   &:hover {
-    @include defaultPublicMixins.sky-theme-modern-border-hover($hover-border);
+    @include sky-theme-modern-border-hover($hover-border);
     text-decoration: none;
   }
 
@@ -35,24 +34,24 @@
 
   &:active,
   &.sky-btn-active {
-    @include defaultPublicMixins.sky-theme-modern-border-active($hover-border);
+    @include sky-theme-modern-border-active($hover-border);
     background-image: none;
   }
 
   @include sky-theme-modern-btn-disabled(
-    modernTokensVars.$sky-theme-modern-font-deemphasized-color,
-    modernTokensVars.$sky-theme-modern-border-color-neutral-light,
-    modernTokensVars.$sky-theme-modern-border-color-neutral-medium
+    $sky-theme-modern-font-deemphasized-color,
+    $sky-theme-modern-border-color-neutral-light,
+    $sky-theme-modern-border-color-neutral-medium
   );
 
   &:focus {
     outline: none;
 
     &:not(:active) {
-      @include defaultPublicMixins.sky-theme-modern-border-focus(
+      @include sky-theme-modern-border-focus(
         $hover-border,
-        modernTokensVars.$sky-theme-modern-elevation-3-shadow-size,
-        modernTokensVars.$sky-theme-modern-elevation-3-shadow-color
+        $sky-theme-modern-elevation-3-shadow-size,
+        $sky-theme-modern-elevation-3-shadow-color
       );
     }
   }
@@ -68,7 +67,7 @@
     &.sky-btn-focus,
     &:active,
     &.sky-btn-active {
-      @include defaultPublicMixins.sky-theme-modern-border($border);
+      @include sky-theme-modern-border($border);
       background-color: $background;
       color: $color;
       opacity: 1;
@@ -79,16 +78,15 @@
 @mixin sky-theme-modern-btn-tab {
   border: none;
   border-radius: 0;
-  font-weight: modernTokensVars.$sky-theme-modern-font-body-default-weight;
-  padding: modernCompatVars.$sky-theme-modern-tab-btn-padding-top-bottom
-    modernCompatVars.$sky-theme-modern-tab-btn-padding-left-right;
-  transition: box-shadow defaultCompatVars.$sky-transition-time-short;
+  font-weight: $sky-theme-modern-font-body-default-weight;
+  padding: $sky-theme-modern-tab-btn-padding-top-bottom
+    $sky-theme-modern-tab-btn-padding-left-right;
+  transition: box-shadow $sky-transition-time-short;
 
   &:hover:not(.sky-btn-tab-disabled):not(.sky-btn-tab-selected):not(.sky-dropdown-button-type-tab):not(:focus) {
     background-color: transparent;
-    border-bottom: solid 1px defaultTokensVars.$sky-highlight-color-info;
-    padding-bottom: modernCompatVars.$sky-theme-modern-tab-btn-padding-top-bottom -
-      1px;
+    border-bottom: solid 1px $sky-highlight-color-info;
+    padding-bottom: $sky-theme-modern-tab-btn-padding-top-bottom - 1px;
   }
 
   &:focus {
@@ -97,39 +95,35 @@
   }
 
   &:focus:not(:active) {
-    outline: solid 2px
-      modernTokensVars.$sky-theme-modern-background-color-primary-dark;
+    outline: solid 2px $sky-theme-modern-background-color-primary-dark;
     outline-offset: -2px;
-    box-shadow: modernTokensVars.$sky-theme-modern-elevation-3-shadow-size
-      modernTokensVars.$sky-theme-modern-elevation-3-shadow-color;
+    box-shadow: $sky-theme-modern-elevation-3-shadow-size
+      $sky-theme-modern-elevation-3-shadow-color;
   }
 
   &:active {
-    border-bottom: solid 3px defaultTokensVars.$sky-highlight-color-info;
-    padding-bottom: modernCompatVars.$sky-theme-modern-tab-btn-padding-top-bottom -
-      3px;
+    border-bottom: solid 3px $sky-highlight-color-info;
+    padding-bottom: $sky-theme-modern-tab-btn-padding-top-bottom - 3px;
   }
 }
 
 @mixin sky-theme-modern-btn-tab-selected {
   background-color: transparent;
-  color: defaultTokensVars.$sky-text-color-default;
+  color: $sky-text-color-default;
 
   &:not(:active) {
-    border-bottom: solid 3px
-      modernTokensVars.$sky-theme-modern-background-color-primary-dark;
-    padding-bottom: modernCompatVars.$sky-theme-modern-tab-btn-padding-top-bottom -
-      3px;
+    border-bottom: solid 3px $sky-theme-modern-background-color-primary-dark;
+    padding-bottom: $sky-theme-modern-tab-btn-padding-top-bottom - 3px;
   }
 
   &:hover:not(.sky-btn-tab-disabled) {
     background-color: transparent;
-    color: defaultTokensVars.$sky-text-color-default;
+    color: $sky-text-color-default;
   }
 
   .sky-btn-tab-close,
   .sky-tab-header-count {
-    color: defaultTokensVars.$sky-text-color-deemphasized;
+    color: $sky-text-color-deemphasized;
   }
 }
 
@@ -137,28 +131,25 @@
   &:hover:not(.sky-btn-tab-disabled) {
     background-color: transparent;
     border-bottom: none;
-    outline: solid 1px
-      modernTokensVars.$sky-theme-modern-background-color-primary-dark;
+    outline: solid 1px $sky-theme-modern-background-color-primary-dark;
     outline-offset: -1px;
   }
 
   &:focus:not(:active) {
     background-color: transparent;
-    box-shadow: modernTokensVars.$sky-theme-modern-elevation-3-shadow-size
-      modernTokensVars.$sky-theme-modern-elevation-3-shadow-color;
-    outline: solid 2px
-      modernTokensVars.$sky-theme-modern-background-color-primary-dark;
+    box-shadow: $sky-theme-modern-elevation-3-shadow-size
+      $sky-theme-modern-elevation-3-shadow-color;
+    outline: solid 2px $sky-theme-modern-background-color-primary-dark;
     outline-offset: -2px;
   }
 }
 
 @mixin sky-theme-modern-btn-tab-selected-dropdown-item {
-  color: defaultTokensVars.$sky-text-color-default;
+  color: $sky-text-color-default;
   border-bottom: none;
-  border-left: solid 3px
-    modernTokensVars.$sky-theme-modern-background-color-primary-dark;
-  padding-bottom: modernCompatVars.$sky-theme-modern-tab-btn-padding-top-bottom;
-  padding-left: defaultCompatVars.$sky-tab-btn-padding-left-right - 3px;
+  border-left: solid 3px $sky-theme-modern-background-color-primary-dark;
+  padding-bottom: $sky-theme-modern-tab-btn-padding-top-bottom;
+  padding-left: $sky-tab-btn-padding-left-right - 3px;
 }
 
 @mixin sky-theme-modern-dark-btn-tab-selected {

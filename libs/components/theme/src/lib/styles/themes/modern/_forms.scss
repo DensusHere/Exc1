@@ -1,38 +1,38 @@
 @use 'node_modules/@blackbaud/skyux-design-tokens/scss/themes/modern/variables'
-  as modernTokensVars;
+  as *;
 
 .sky-theme-modern {
   &.sky-theme-mode-dark {
     .sky-error-label {
-      color: modernTokensVars.$sky-theme-modern-mode-dark-font-body-default-color;
+      color: $sky-theme-modern-mode-dark-font-body-default-color;
     }
   }
 
   // Placeholder text
   ::-webkit-input-placeholder {
-    color: modernTokensVars.$sky-theme-modern-font-deemphasized-color;
-    font-style: modernTokensVars.$sky-theme-modern-font-deemphasized-style;
+    color: $sky-theme-modern-font-deemphasized-color;
+    font-style: $sky-theme-modern-font-deemphasized-style;
     opacity: 1;
   }
 
   ::-moz-placeholder {
     /* Firefox 19+ */
-    color: modernTokensVars.$sky-theme-modern-font-deemphasized-color;
-    font-style: modernTokensVars.$sky-theme-modern-font-deemphasized-style;
+    color: $sky-theme-modern-font-deemphasized-color;
+    font-style: $sky-theme-modern-font-deemphasized-style;
     opacity: 1;
   }
 
   input:-moz-placeholder {
     /* Firefox 18- */
-    color: modernTokensVars.$sky-theme-modern-font-deemphasized-color;
-    font-style: modernTokensVars.$sky-theme-modern-font-deemphasized-style;
+    color: $sky-theme-modern-font-deemphasized-color;
+    font-style: $sky-theme-modern-font-deemphasized-style;
     opacity: 1;
   }
 
   :-ms-input-placeholder {
     /* IE */
-    color: modernTokensVars.$sky-theme-modern-font-deemphasized-color;
-    font-style: modernTokensVars.$sky-theme-modern-font-deemphasized-style;
+    color: $sky-theme-modern-font-deemphasized-color;
+    font-style: $sky-theme-modern-font-deemphasized-style;
     opacity: 1;
   }
 }
