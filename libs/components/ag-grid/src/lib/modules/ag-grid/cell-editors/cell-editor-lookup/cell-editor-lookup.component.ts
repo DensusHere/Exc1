@@ -1,3 +1,6 @@
+import { ICellEditorAngularComp } from '@ag-grid-community/angular';
+import { ColumnResizedEvent } from '@ag-grid-community/core';
+import { IPopupComponent } from '@ag-grid-community/core/dist/es6/interfaces/iPopupComponent';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -6,10 +9,6 @@ import {
   HostBinding,
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-
-import { ICellEditorAngularComp } from 'ag-grid-angular';
-import { ColumnResizedEvent } from 'ag-grid-community';
-import { IPopupComponent } from 'ag-grid-community/dist/lib/interfaces/iPopupComponent';
 
 import { applySkyLookupPropertiesDefaults } from '../../apply-lookup-properties-defaults';
 import { SkyCellEditorLookupParams } from '../../types/cell-editor-lookup-params';

@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { SkyAgGridService, SkyCellType } from '@skyux/ag-grid';
-import { SkyModalCloseArgs, SkyModalService } from '@skyux/modals';
-import { SkyThemeService } from '@skyux/theme';
-
 import {
   GridApi,
   GridOptions,
   GridReadyEvent,
   ValueFormatterParams,
-} from 'ag-grid-community';
+} from '@ag-grid-community/core';
+import { Component, OnInit } from '@angular/core';
+import { SkyAgGridService, SkyCellType } from '@skyux/ag-grid';
+import { SkyModalCloseArgs, SkyModalService } from '@skyux/modals';
+import { SkyThemeService } from '@skyux/theme';
 
 import { SKY_AG_GRID_DEMO_DATA } from './ag-grid-demo-data';
 import { SkyAgGridEditModalContext } from './ag-grid-edit-modal-context';

@@ -1,10 +1,9 @@
+import { AgGridModule } from '@ag-grid-community/angular';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { SkyViewkeeperModule } from '@skyux/core';
 import { SkyDataManagerModule } from '@skyux/data-manager';
 import { SkyInlineDeleteModule } from '@skyux/layout';
-
-import { AgGridModule } from 'ag-grid-angular';
 
 import { SkyAgGridDataManagerAdapterDirective } from './ag-grid-data-manager-adapter.directive';
 import { SkyAgGridRowDeleteComponent } from './ag-grid-row-delete.component';

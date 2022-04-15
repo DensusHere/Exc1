@@ -1,6 +1,5 @@
+import { GridOptions } from '@ag-grid-community/core';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-
-import { GridOptions } from 'ag-grid-community';
 
 import { SkyAgGridService } from '../ag-grid.service';
 import { SkyCellType } from '../types/cell-type';

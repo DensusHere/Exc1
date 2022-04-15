@@ -1,12 +1,11 @@
+import { ICellEditorAngularComp } from '@ag-grid-community/angular';
+import { ICellEditorParams } from '@ag-grid-community/core';
 import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
   ViewChild,
 } from '@angular/core';
-
-import { ICellEditorAngularComp } from 'ag-grid-angular';
-import { ICellEditorParams } from 'ag-grid-community';
 
 import { SkyCellEditorTextParams } from '../../types/cell-editor-text-params';
 

@@ -1,3 +1,9 @@
+import {
+  GridApi,
+  GridOptions,
+  GridReadyEvent,
+  ICellRendererParams,
+} from '@ag-grid-community/core';
 import { Component, HostListener, OnInit } from '@angular/core';
 import {
   SkyAgGridRowDeleteConfirmArgs,
@@ -6,12 +12,6 @@ import {
 } from '@skyux/ag-grid';
 import { SkyThemeService } from '@skyux/theme';
 
-import {
-  GridApi,
-  GridOptions,
-  GridReadyEvent,
-  ICellRendererParams,
-} from 'ag-grid-community';
 import { Observable, Subject } from 'rxjs';
 
 import { ReadonlyGridContextMenuComponent } from './readonly-grid-context-menu.component';

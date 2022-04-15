@@ -1,7 +1,3 @@
-import { Injectable, OnDestroy, Optional } from '@angular/core';
-import { SkyLibResourcesService } from '@skyux/i18n';
-import { SkyThemeService, SkyThemeSettings } from '@skyux/theme';
-
 import {
   CellClassParams,
   GridOptions,
@@ -9,8 +5,12 @@ import {
   RowClassParams,
   SuppressKeyboardEventParams,
   ValueFormatterParams,
-} from 'ag-grid-community';
-import { EditableCallbackParams } from 'ag-grid-community/dist/lib/entities/colDef';
+} from '@ag-grid-community/core';
+import { EditableCallbackParams } from '@ag-grid-community/core';
+import { Injectable, OnDestroy, Optional } from '@angular/core';
+import { SkyLibResourcesService } from '@skyux/i18n';
+import { SkyThemeService, SkyThemeSettings } from '@skyux/theme';
+
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 

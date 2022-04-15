@@ -1,11 +1,10 @@
+import { ICellEditorAngularComp } from '@ag-grid-community/angular';
 import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
   ViewChild,
 } from '@angular/core';
-
-import { ICellEditorAngularComp } from 'ag-grid-angular';
 
 import { SkyAgGridAutocompleteProperties } from '../../types/autocomplete-properties';
 import { SkyCellEditorAutocompleteParams } from '../../types/cell-editor-autocomplete-params';

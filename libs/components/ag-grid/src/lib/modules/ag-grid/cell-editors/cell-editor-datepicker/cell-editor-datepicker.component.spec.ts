@@ -1,3 +1,4 @@
+import { Column, RowNode } from '@ag-grid-community/core';
 import {
   ComponentFixture,
   TestBed,
@@ -14,7 +15,6 @@ import {
   SkyThemeSettingsChange,
 } from '@skyux/theme';
 
-import { Column, RowNode } from 'ag-grid-community';
 import { BehaviorSubject } from 'rxjs';
 
 import { SkyAgGridFixtureComponent } from '../../fixtures/ag-grid.component.fixture';

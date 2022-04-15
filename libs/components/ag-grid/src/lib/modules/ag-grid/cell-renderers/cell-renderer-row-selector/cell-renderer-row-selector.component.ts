@@ -1,16 +1,15 @@
+import { ICellRendererAngularComp } from '@ag-grid-community/angular';
+import {
+  ICellRendererParams,
+  RowNode,
+  RowSelectedEvent,
+} from '@ag-grid-community/core';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   ViewEncapsulation,
 } from '@angular/core';
-
-import { ICellRendererAngularComp } from 'ag-grid-angular';
-import {
-  ICellRendererParams,
-  RowNode,
-  RowSelectedEvent,
-} from 'ag-grid-community';
 
 /**
  * @internal

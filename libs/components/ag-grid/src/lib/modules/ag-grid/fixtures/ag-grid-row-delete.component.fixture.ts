@@ -1,11 +1,10 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-
 import {
   ColumnApi,
   GridApi,
   GridOptions,
   GridReadyEvent,
-} from 'ag-grid-community';
+} from '@ag-grid-community/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 import { SkyAgGridService } from '../ag-grid.service';
 import { SkyAgGridRowDeleteCancelArgs } from '../types/ag-grid-row-delete-cancel-args';

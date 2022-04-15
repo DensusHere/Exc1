@@ -1,3 +1,5 @@
+import { AgGridAngular } from '@ag-grid-community/angular';
+import { RowNode } from '@ag-grid-community/core';
 import {
   AfterContentInit,
   ChangeDetectorRef,
@@ -18,8 +20,6 @@ import {
   SkyOverlayService,
 } from '@skyux/core';
 
-import { AgGridAngular } from 'ag-grid-angular';
-import { RowNode } from 'ag-grid-community';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 

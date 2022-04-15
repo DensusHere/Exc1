@@ -1,3 +1,5 @@
+import { AgGridAngular } from '@ag-grid-community/angular';
+import { DetailGridInfo } from '@ag-grid-community/core';
 import {
   AfterContentInit,
   ChangeDetectionStrategy,
@@ -6,9 +8,6 @@ import {
   ContentChild,
   ElementRef,
 } from '@angular/core';
-
-import { AgGridAngular } from 'ag-grid-angular';
-import { DetailGridInfo } from 'ag-grid-community';
 
 import { SkyAgGridAdapterService } from './ag-grid-adapter.service';
 

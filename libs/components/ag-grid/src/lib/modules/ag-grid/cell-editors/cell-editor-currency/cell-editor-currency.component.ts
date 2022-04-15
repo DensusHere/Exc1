@@ -1,11 +1,10 @@
+import { ICellEditorAngularComp } from '@ag-grid-community/angular';
 import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
   ViewChild,
 } from '@angular/core';
-
-import { ICellEditorAngularComp } from 'ag-grid-angular';
 
 import { SkyCellEditorCurrencyParams } from '../../types/cell-editor-currency-params';
 import { SkyAgGridCurrencyProperties } from '../../types/currency-properties';

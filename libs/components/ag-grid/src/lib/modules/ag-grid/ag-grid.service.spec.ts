@@ -1,3 +1,12 @@
+import {
+  CellClassParams,
+  ColumnApi,
+  GridOptions,
+  RowClassParams,
+  RowNode,
+  ValueFormatterFunc,
+  ValueFormatterParams,
+} from '@ag-grid-community/core';
 import { TestBed } from '@angular/core/testing';
 import { expect } from '@skyux-sdk/testing';
 import {
@@ -8,15 +17,6 @@ import {
   SkyThemeSettingsChange,
 } from '@skyux/theme';
 
-import {
-  CellClassParams,
-  ColumnApi,
-  GridOptions,
-  RowClassParams,
-  RowNode,
-  ValueFormatterFunc,
-  ValueFormatterParams,
-} from 'ag-grid-community';
 import { ICellRendererParams } from 'ag-grid-community/dist/lib/rendering/cellRenderers/iCellRenderer';
 import { BehaviorSubject } from 'rxjs';
 
