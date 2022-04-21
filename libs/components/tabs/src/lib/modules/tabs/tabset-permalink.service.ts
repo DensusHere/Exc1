@@ -62,21 +62,12 @@ export class SkyTabsetPermalinkService implements OnDestroy {
     }
 
     // Update the URL without triggering a navigation state change.
-    // See: https://stackoverflow.com/a/46486677
-    const url = this.router
-      .createUrlTree([], {
-        relativeTo: this.activatedRoute,
-        queryParams: params,
-        queryParamsHandling: 'merge',
-      })
-      .toString();
-
-    // Abort redirect if the current URL is equal to the new URL.
-    if (this.location.isCurrentPathEqualTo(url)) {
-      return;
-    }
-
-    this.location.go(url);
+    this.router.navigate([], {
+      relativeTo: this.activatedRoute,
+      queryParams: params,
+      queryParamsHandling: 'merge',
+      skipLocationChange: true,
+    });
   }
 
   /**
