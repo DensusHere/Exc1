@@ -59,7 +59,7 @@ export class SkyRepeaterItemComponent
   /**
    * Specifies configuration options for the buttons to display on an inline form
    * within the repeater. This property accepts
-   * [a `SkyInlineFormConfig` object](https://developer.blackbaud.com/skyux/components/inline-form#skyinlineformconfig-properties).
+   * a `SkyInlineFormConfig` found in the [@skyux/forms library](https://developer.blackbaud.com/skyux/components/inline-form?docs-active-tab=development).
    */
   @Input()
   public inlineFormConfig: SkyInlineFormConfig;
@@ -69,7 +69,7 @@ export class SkyRepeaterItemComponent
    * as a template to instantiate an inline form within the repeater.
    */
   @Input()
-  public inlineFormTemplate: TemplateRef<any>;
+  public inlineFormTemplate: TemplateRef<unknown>;
 
   /**
    * Indicates whether the repeater item is expanded.
@@ -103,7 +103,7 @@ export class SkyRepeaterItemComponent
 
   /**
    * Indicates whether users can change the order of the repeater item.
-   * The repeater component's `reorderable` property must also be set to `true`.
+   * @internal
    */
   @Input()
   public reorderable = false;
@@ -143,7 +143,7 @@ export class SkyRepeaterItemComponent
 
   /**
    * Fires when the repeater includes an inline form and users close it. This event emits
-   * [a `SkyInlineFormCloseArgs` type](https://developer.blackbaud.com/skyux/components/inline-form#skyinlineformcloseargs-properties).
+   * a `SkyInlineFormCloseArgs` type found in the [@skyux/forms library](https://developer.blackbaud.com/skyux/components/inline-form?docs-active-tab=development).
    */
   @Output()
   public inlineFormClose = new EventEmitter<SkyInlineFormCloseArgs>();
