@@ -1,5 +1,9 @@
 import { Component, OnDestroy } from '@angular/core';
-import { SkyFlyoutInstance, SkyFlyoutService } from '@skyux/flyout';
+import {
+  SkyFlyoutConfig,
+  SkyFlyoutInstance,
+  SkyFlyoutService,
+} from '@skyux/flyout';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -7,6 +11,7 @@ import { takeUntil } from 'rxjs/operators';
 import { FlyoutDemoContext } from './flyout-demo-context';
 import { FlyoutDemoComponent } from './flyout-demo.component';
 import { FlyoutResponsiveDemoComponent } from './flyout-responsive-demo.component';
+import { FlyoutWithTabsetDemoComponent } from './flyout-with-tabset-demo.component';
 
 @Component({
   selector: 'app-flyout',
@@ -116,5 +121,16 @@ export class FlyoutComponent implements OnDestroy {
       defaultWidth: width,
       maxWidth: 5000,
     });
+  }
+
+  public openFlyoutWithTabset(): void {
+    const flyoutConfig: SkyFlyoutConfig = {
+      ariaLabelledBy: 'flyout-title',
+      ariaRole: 'dialog',
+    };
+    this.flyout = this.flyoutService.open(
+      FlyoutWithTabsetDemoComponent,
+      flyoutConfig
+    );
   }
 }
