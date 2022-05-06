@@ -17,6 +17,7 @@ describe('SkyAgGridCellEditorLookupComponent', () => {
   let fixture: ComponentFixture<SkyAgGridCellEditorLookupComponent>;
   let callback: EventCallback | undefined;
   const params: SkyCellEditorLookupParams = {
+    $scope: undefined,
     api: undefined,
     cellStartedEdit: false,
     charPress: undefined,

@@ -625,6 +625,7 @@ describe('SkyAgGridService', () => {
         data: undefined,
         node: undefined,
         rowIndex: undefined,
+        $scope: undefined,
         api: undefined,
         columnApi: new ColumnApi(),
         context: undefined,
@@ -699,6 +700,7 @@ describe('SkyAgGridService', () => {
         data: undefined,
         node: undefined,
         rowIndex: undefined,
+        $scope: undefined,
         api: undefined,
         columnApi: new ColumnApi(),
         context: undefined,
@@ -706,6 +708,7 @@ describe('SkyAgGridService', () => {
       };
 
       cellRendererParams = {
+        $scope: undefined,
         addRenderedRowListener(): void {},
         api: undefined,
         colDef: {},
@@ -955,6 +958,7 @@ describe('SkyAgGridService', () => {
 
   describe('getRowClass', () => {
     const params: RowClassParams = {
+      $scope: undefined,
       api: undefined,
       columnApi: undefined,
       context: undefined,
