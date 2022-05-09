@@ -2594,6 +2594,40 @@
       },
       "tags": ["component"]
     },
+    "eslint-plugin-skyux": {
+      "root": "libs/sdk/eslint-plugin-skyux",
+      "sourceRoot": "libs/sdk/eslint-plugin-skyux/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/sdk/eslint-plugin-skyux/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/sdk/eslint-plugin-skyux"],
+          "options": {
+            "jestConfig": "libs/sdk/eslint-plugin-skyux/jest.config.ts",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/js:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/sdk/eslint-plugin-skyux",
+            "tsConfig": "libs/sdk/eslint-plugin-skyux/tsconfig.lib.json",
+            "packageJson": "libs/sdk/eslint-plugin-skyux/package.json",
+            "main": "libs/sdk/eslint-plugin-skyux/src/index.ts",
+            "assets": ["libs/sdk/eslint-plugin-skyux/*.md"]
+          }
+        }
+      },
+      "tags": ["sdk"]
+    },
     "select-field": {
       "projectType": "library",
       "root": "libs/components/select-field",
