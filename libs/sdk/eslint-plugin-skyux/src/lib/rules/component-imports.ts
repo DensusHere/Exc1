@@ -15,8 +15,8 @@ export const componentImports = createRule({
   defaultOptions: [],
   create: function () {
     return {
-      ClassDeclaration(node) {
-        console.log(node.body);
+      ImportDeclaration(node) {
+        console.log(node);
       },
     };
   },
