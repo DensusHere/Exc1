@@ -94,7 +94,7 @@
       "options": {
         "port": 4400,
         "configDir": "apps/e2e/tabs-storybook/.storybook",
-        "browserTarget": "tabs-storybook:build",
+        "browserTarget": "tabs-storybook:build-storybook",
         "compodoc": false,
         "styles": [
           "libs/components/theme/src/lib/styles/sky.scss",
@@ -113,7 +113,7 @@
       "options": {
         "outputDir": "dist/storybook/tabs-storybook",
         "configDir": "apps/e2e/tabs-storybook/.storybook",
-        "browserTarget": "tabs-storybook:build",
+        "browserTarget": "tabs-storybook:build-storybook",
         "compodoc": false,
         "styles": [
           "libs/components/theme/src/lib/styles/sky.scss",

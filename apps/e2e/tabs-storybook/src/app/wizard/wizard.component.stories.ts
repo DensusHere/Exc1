@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { Meta, Story, moduleMetadata } from '@storybook/angular';
 
 import { WizardComponent } from './wizard.component';
@@ -9,7 +10,7 @@ export default {
   component: WizardComponent,
   decorators: [
     moduleMetadata({
-      imports: [WizardModule],
+      imports: [WizardModule, RouterModule.forRoot([])],
     }),
   ],
 } as Meta<WizardComponent>;

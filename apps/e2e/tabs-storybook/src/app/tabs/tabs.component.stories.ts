@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { Meta, Story, moduleMetadata } from '@storybook/angular';
 
 import { TabsComponent } from './tabs.component';
@@ -9,7 +10,7 @@ export default {
   component: TabsComponent,
   decorators: [
     moduleMetadata({
-      imports: [TabsModule],
+      imports: [TabsModule, RouterModule.forRoot([])],
     }),
   ],
 } as Meta<TabsComponent>;
