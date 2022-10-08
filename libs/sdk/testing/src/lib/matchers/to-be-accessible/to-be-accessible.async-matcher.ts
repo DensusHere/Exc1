@@ -36,23 +36,17 @@ function getAxeConfig(
 ): axe.RunOptions {
   const axeRulesOverrides = new Map<string, { enabled: boolean }>();
 
-  // Enable all rules by default.
-  // axe
-  //   .getRules([
-  //     'wcag2a',
-  //     'wcag2aa',
-  //     'wcag2aaa',
-  //     'wcag21a',
-  //     'wcag21aa',
-  //     'wcag21aaa',
-  //   ])
-  //   .forEach((rule) => {
-  //     axeRulesOverrides.set(rule.ruleId, { enabled: true });
-  //   });
+  // Enable certain rules by default.
+  axe
+    .getRules(['wcag2a', 'wcag2aa', 'wcag2aaa', 'best-practice'])
+    .forEach((rule) => {
+      axeRulesOverrides.set(rule.ruleId, { enabled: true });
+    });
 
   // Disable rules for default theme.
   if (config.skyTheme === 'default') {
     axeRulesOverrides.set('color-contrast', { enabled: false });
+    axeRulesOverrides.set('color-contrast-enhanced', { enabled: false });
   }
 
   const axeConfig: axe.RunOptions = {
@@ -95,7 +89,7 @@ function toBeA11y(): jasmine.CustomAsyncMatcher {
 
       try {
         const result = await axe.run(actual, axeConfig);
-        if (result.violations) {
+        if (result.violations.length > 0) {
           return { pass: false, message: formatViolations(result) };
         }
       } catch (err) {
@@ -110,3 +104,14 @@ function toBeA11y(): jasmine.CustomAsyncMatcher {
 export const SkyJasmineAsyncMatchers: jasmine.CustomAsyncMatcherFactories = {
   toBeA11y,
 };
+
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace jasmine {
+    interface AsyncMatchers<T, U> {
+      toBeA11y(
+        config?: SkyAsyncMatcherToBeAccessibleConfig
+      ): Promise<jasmine.CustomMatcherResult>;
+    }
+  }
+}

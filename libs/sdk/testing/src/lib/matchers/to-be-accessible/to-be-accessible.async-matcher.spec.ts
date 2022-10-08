@@ -1,6 +1,6 @@
 import { SkyJasmineAsyncMatchers } from './to-be-accessible.async-matcher';
 
-fdescribe('expectAsync.toBeAccessible', () => {
+xdescribe('expectAsync.toBeAccessible', () => {
   function createPassingElement() {
     const wrapper = document.createElement('div');
     const elem1 = document.createElement('div');
