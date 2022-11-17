@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormControl,
@@ -11,18 +11,18 @@ import { SkyModalInstance } from '@skyux/modals';
   selector: 'app-lookup-custom-picker',
   templateUrl: './lookup-custom-picker.component.html',
 })
-export class LookupCustomPickerComponent implements OnInit {
+export class LookupCustomPickerComponent {
   public myForm: UntypedFormGroup;
+  public selectLastFormControl: UntypedFormControl;
 
   constructor(
-    private formBuilder: UntypedFormBuilder,
+    formBuilder: UntypedFormBuilder,
     public context: SkyLookupShowMoreCustomPickerContext,
     public modalInstance: SkyModalInstance
-  ) {}
-
-  public ngOnInit(): void {
-    this.myForm = this.formBuilder.group({
-      selectLast: new UntypedFormControl(false),
+  ) {
+    this.selectLastFormControl = new UntypedFormControl(false);
+    this.myForm = formBuilder.group({
+      selectLast: this.selectLastFormControl,
     });
   }
 }

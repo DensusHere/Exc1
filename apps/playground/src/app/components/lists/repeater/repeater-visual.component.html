@@ -263,10 +263,10 @@
         <sky-repeater-item-title>
           <sky-fluid-grid>
             <sky-row>
-              <sky-column screenXSmall="11">
+              <sky-column [screenXSmall]="11">
                 {{ item.title }}
               </sky-column>
-              <sky-column screenXSmall="1">
+              <sky-column [screenXSmall]="1">
                 <button
                   class="sky-btn sky-btn-link sky-no-focus sky-demo-btn-edit"
                   type="button"
@@ -374,7 +374,7 @@
     id="screenshot-repeater-inline-delete"
   >
     <h3>Repeater with inline deletes</h3>
-    <sky-repeater activeIndex="1" [expandMode]="'single'">
+    <sky-repeater [activeIndex]="1" [expandMode]="'single'">
       <sky-repeater-item>
         <sky-inline-delete
           *ngIf="showStandardInlineDelete"

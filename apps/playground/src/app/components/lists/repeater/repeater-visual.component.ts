@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
 import {
+  FormArray,
+  FormControl,
   FormsModule,
   ReactiveFormsModule,
-  UntypedFormArray,
-  UntypedFormControl,
   Validators,
 } from '@angular/forms';
 import { SkyInputBoxModule } from '@skyux/forms';
@@ -14,7 +14,7 @@ import {
   SkyInlineFormCloseArgs,
   SkyInlineFormConfig,
 } from '@skyux/inline-form';
-import { SkyFluidGridModule } from '@skyux/layout';
+import { SkyFluidGridModule, SkyInlineDeleteModule } from '@skyux/layout';
 import { SkyRepeaterModule } from '@skyux/lists';
 import { SkyDropdownModule } from '@skyux/popovers';
 import { SkyThemeModule } from '@skyux/theme';
@@ -27,9 +27,9 @@ let nextItemId = 0;
   styleUrls: ['./repeater-visual.component.scss'],
 })
 export class RepeaterVisualComponent {
-  public activeIndex = 0;
+  public activeIndex: number | undefined = 0;
 
-  public activeInlineFormId: number;
+  public activeInlineFormId: number | string | undefined;
 
   public customConfig: SkyInlineFormConfig = {
     buttonLayout: SkyInlineFormButtonLayout.Custom,
@@ -88,19 +88,21 @@ export class RepeaterVisualComponent {
     },
   ];
 
-  public get itemsForReorderableRepeaterWithAddButton(): UntypedFormArray {
+  public get itemsForReorderableRepeaterWithAddButton(): FormArray<FormControl> {
     if (typeof this._itemsForReorderableRepeaterWithAddButton === 'undefined') {
-      this._itemsForReorderableRepeaterWithAddButton = new UntypedFormArray(
-        Array.from(Array(5).keys()).map((n) =>
-          this.newItemForReorderableRepeaterWithAddButton(n + 1)
-        )
-      );
+      this._itemsForReorderableRepeaterWithAddButton =
+        new FormArray<FormControl>(
+          Array.from(Array(5).keys()).map((n) =>
+            this.newItemForReorderableRepeaterWithAddButton(n + 1)
+          )
+        );
     }
-    return this._itemsForReorderableRepeaterWithAddButton as UntypedFormArray;
+    return this
+      ._itemsForReorderableRepeaterWithAddButton as FormArray<FormControl>;
   }
 
   public _itemsForReorderableRepeaterWithAddButton:
-    | UntypedFormArray
+    | FormArray<FormControl>
     | undefined;
 
   public reorderable = true;
@@ -143,7 +145,9 @@ export class RepeaterVisualComponent {
   public addItemToReorderableRepeaterWithAddButton(): void {
     this.itemsForReorderableRepeaterWithAddButton.push(
       this.newItemForReorderableRepeaterWithAddButton(
-        this._itemsForReorderableRepeaterWithAddButton.length + 1
+        this._itemsForReorderableRepeaterWithAddButton
+          ? this._itemsForReorderableRepeaterWithAddButton.length + 1
+          : 0
       )
     );
   }
@@ -153,7 +157,7 @@ export class RepeaterVisualComponent {
   }
 
   public onOrderChangeForReorderableRepeaterWithAddButton(
-    tags: UntypedFormControl[]
+    tags: FormControl[]
   ): void {
     console.log(tags);
     this.itemsForReorderableRepeaterWithAddButton.clear();
@@ -187,11 +191,11 @@ export class RepeaterVisualComponent {
     this.activeIndex = index;
   }
 
-  public onEnter(event: KeyboardEvent, index: number): void {
+  public onEnter(event: Event, index: number): void {
     this.onItemClick(index);
   }
 
-  public onSpace(event: KeyboardEvent, index: number): void {
+  public onSpace(event: Event, index: number): void {
     this.onItemClick(index);
   }
 
@@ -211,10 +215,8 @@ export class RepeaterVisualComponent {
     this.showStandardInlineDelete = true;
   }
 
-  private newItemForReorderableRepeaterWithAddButton(
-    n: number
-  ): UntypedFormControl {
-    return new UntypedFormControl(`item ${n}`, [
+  private newItemForReorderableRepeaterWithAddButton(n: number): FormControl {
+    return new FormControl(`item ${n}`, [
       Validators.required,
       Validators.maxLength(20),
     ]);
@@ -228,6 +230,7 @@ export class RepeaterVisualComponent {
     SkyFluidGridModule,
     SkyIconModule,
     SkyInputBoxModule,
+    SkyInlineDeleteModule,
     SkyRepeaterModule,
     SkyThemeModule,
     FormsModule,

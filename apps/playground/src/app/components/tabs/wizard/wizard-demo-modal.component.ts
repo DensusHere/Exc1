@@ -1,30 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { SkyModalInstance } from '@skyux/modals';
+import { SkyTabIndex } from '@skyux/tabs';
 
 @Component({
   selector: 'app-wizard-demo-modal',
   templateUrl: './wizard-demo-modal.component.html',
 })
-export class WizardDemoModalComponent implements OnInit {
+export class WizardDemoModalComponent {
   public myForm: UntypedFormGroup;
   public title = 'Wizard Tabset Example';
-  public activeIndex = 0;
+  public activeIndex: SkyTabIndex = 0;
   public step2Disabled = true;
   public step3Disabled = true;
   public saveDisabled = true;
-
-  #formBuilder: UntypedFormBuilder;
 
   constructor(
     public instance: SkyModalInstance,
     formBuilder: UntypedFormBuilder
   ) {
-    this.#formBuilder = formBuilder;
-  }
-
-  public ngOnInit(): void {
-    this.myForm = this.#formBuilder.group({
+    this.myForm = formBuilder.group({
       requiredValue1: undefined,
       requiredValue2: false,
       requiredValue3: undefined,
@@ -42,11 +37,19 @@ export class WizardDemoModalComponent implements OnInit {
   }
 
   public onNextClick(): void {
-    this.activeIndex++;
+    if (typeof this.activeIndex === 'number') {
+      this.activeIndex++;
+    } else {
+      this.activeIndex = parseInt(this.activeIndex) + 1;
+    }
   }
 
   public onPrevClick(): void {
-    this.activeIndex--;
+    if (typeof this.activeIndex === 'number') {
+      this.activeIndex--;
+    } else {
+      this.activeIndex = parseInt(this.activeIndex) - 1;
+    }
   }
 
   public onCancelClick(): void {

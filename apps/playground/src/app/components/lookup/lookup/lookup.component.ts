@@ -1,7 +1,6 @@
 import {
   ChangeDetectorRef,
   Component,
-  OnInit,
   TemplateRef,
   ViewChild,
 } from '@angular/core';
@@ -28,9 +27,10 @@ import { LookupCustomPickerComponent } from './lookup-custom-picker.component';
   templateUrl: './lookup.component.html',
   styleUrls: ['./lookup.component.scss'],
 })
-export class LookupComponent implements OnInit {
+export class LookupComponent {
   public friendsForm: UntypedFormGroup;
   public bestFriendsForm: UntypedFormGroup;
+  public bestFriendsFormControl: UntypedFormControl;
   public showMoreConfig: SkyLookupShowMoreConfig = {};
   public disabled = false;
 
@@ -76,13 +76,20 @@ export class LookupComponent implements OnInit {
   }
 
   constructor(
-    private formBuilder: UntypedFormBuilder,
+    formBuilder: UntypedFormBuilder,
     private modalService: SkyModalService,
     private changeDetector: ChangeDetectorRef
-  ) {}
+  ) {
+    this.friendsForm = formBuilder.group({
+      friends: new UntypedFormControl(this.friends),
+      friends2: new UntypedFormControl(this.friends2),
+    });
 
-  public ngOnInit(): void {
-    this.createForms();
+    this.bestFriendsFormControl = new UntypedFormControl(this.bestFriend);
+    this.bestFriendsForm = formBuilder.group({
+      bestFriend: this.bestFriendsFormControl,
+      bestFriendAsync: undefined,
+    });
   }
 
   public addButtonClicked(): void {
@@ -98,7 +105,7 @@ export class LookupComponent implements OnInit {
   }
 
   public onResetValueClick(): void {
-    this.bestFriendsForm.get('bestFriend').setValue(undefined);
+    this.bestFriendsFormControl.setValue(undefined);
   }
 
   public toggleCustomPicker(): void {
@@ -158,17 +165,5 @@ export class LookupComponent implements OnInit {
       items,
       totalCount,
     }).pipe(delay(1000));
-  }
-
-  private createForms(): void {
-    this.friendsForm = this.formBuilder.group({
-      friends: new UntypedFormControl(this.friends),
-      friends2: new UntypedFormControl(this.friends2),
-    });
-
-    this.bestFriendsForm = this.formBuilder.group({
-      bestFriend: new UntypedFormControl(this.bestFriend),
-      bestFriendAsync: undefined,
-    });
   }
 }

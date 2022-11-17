@@ -42,8 +42,6 @@ export class SplitViewPageBoundComponent {
 
   public splitViewStream = new Subject<SkySplitViewMessage>();
 
-  public width: number;
-
   private _activeIndex = 0;
 
   constructor(

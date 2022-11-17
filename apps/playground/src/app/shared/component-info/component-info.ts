@@ -1,4 +1,4 @@
-export class ComponentInfo {
+export interface ComponentInfo {
   name: string;
   icon: string;
   library: string;

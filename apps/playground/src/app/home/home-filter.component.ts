@@ -10,7 +10,7 @@ import { SkyModalInstance } from '@skyux/modals';
   templateUrl: './home-filter.component.html',
 })
 export class HomeFiltersModalDemoComponent {
-  public libraries: { name: string; isSelected: boolean }[];
+  public libraries: { name: string; isSelected: boolean }[] = [];
 
   constructor(
     public context: SkyDataManagerFilterModalContext,

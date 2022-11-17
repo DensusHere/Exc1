@@ -8,7 +8,7 @@
         *ngFor="let component of displayedItems"
         [permalink]="{
           route: {
-            commands: component.path
+            commands: [component.path]
           }
         }"
       >

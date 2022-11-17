@@ -21,7 +21,7 @@ import { ModalTiledDemoComponent } from './modal-tiled-demo.component';
 })
 export class ModalVisualComponent {
   public showHelp = false;
-  public buttonsHidden: boolean;
+  public buttonsHidden = false;
 
   constructor(private modal: SkyModalService) {}
 

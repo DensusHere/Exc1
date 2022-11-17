@@ -68,9 +68,7 @@ export class SplitViewComponent {
     },
   ];
 
-  public listWidth: number;
-
-  public splitViewDemoForm: UntypedFormGroup;
+  public splitViewDemoForm: UntypedFormGroup | undefined;
 
   public splitViewStream = new Subject<SkySplitViewMessage>();
 
@@ -86,7 +84,7 @@ export class SplitViewComponent {
 
   public onItemClick(index: number): void {
     // Prevent workspace from loading new data if the current workspace form is dirty.
-    if (this.splitViewDemoForm.dirty && index !== this.activeIndex) {
+    if (this.splitViewDemoForm?.dirty && index !== this.activeIndex) {
       this.openConfirmModal(index);
     } else {
       this.loadWorkspace(index);
@@ -143,9 +141,9 @@ export class SplitViewComponent {
 
   private saveForm(): void {
     this.activeRecord.approvedAmount =
-      this.splitViewDemoForm.value.approvedAmount;
-    this.activeRecord.comments = this.splitViewDemoForm.value.comments;
-    this.splitViewDemoForm.reset(this.splitViewDemoForm.value);
+      this.splitViewDemoForm?.value.approvedAmount;
+    this.activeRecord.comments = this.splitViewDemoForm?.value.comments;
+    this.splitViewDemoForm?.reset(this.splitViewDemoForm.value);
   }
 
   private setFocusInWorkspace(): void {

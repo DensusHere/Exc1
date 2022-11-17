@@ -9,13 +9,13 @@ export class SectionedFormInformationFormDemoComponent {
   public name = '';
   public id = '5324901';
 
-  #_nameRequired: boolean | undefined = false;
+  #_nameRequired = false;
 
-  public get nameRequired(): boolean | undefined {
+  public get nameRequired(): boolean {
     return this.#_nameRequired;
   }
   public set nameRequired(value: boolean | undefined) {
-    this.#_nameRequired = value;
+    this.#_nameRequired = !!value;
 
     if (value) {
       this.#sectionService.requiredFieldChanged(true);

@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { NgModel, UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { Component } from '@angular/core';
+import {
+  NgModel,
+  UntypedFormBuilder,
+  UntypedFormControl,
+  UntypedFormGroup,
+} from '@angular/forms';
 import {
   SkyAutocompleteSearchAsyncArgs,
   SkyAutocompleteSelectionChange,
@@ -12,11 +17,12 @@ import { delay } from 'rxjs/operators';
   selector: 'app-autocomplete',
   templateUrl: './autocomplete.component.html',
 })
-export class AutocompleteComponent implements OnInit {
+export class AutocompleteComponent {
   public controlForm: UntypedFormGroup;
   public reactiveForm: UntypedFormGroup;
+  public favoriteColorFormControl: UntypedFormControl;
 
-  public templateDrivenModel: NgModel;
+  public templateDrivenModel: NgModel | undefined;
 
   public data: { name: string }[] = [
     { name: 'Red' },
@@ -36,24 +42,23 @@ export class AutocompleteComponent implements OnInit {
 
   private reactiveDisabledState = false;
 
-  constructor(private formBuilder: UntypedFormBuilder) {}
-
-  public ngOnInit(): void {
-    this.controlForm = this.formBuilder.group({
+  constructor(formBuilder: UntypedFormBuilder) {
+    this.controlForm = formBuilder.group({
       searchTextMin: undefined,
       searchTextMinTemplate: undefined,
     });
-    this.reactiveForm = this.formBuilder.group({
-      favoriteColor: undefined,
+    this.favoriteColorFormControl = new UntypedFormControl();
+    this.reactiveForm = formBuilder.group({
+      favoriteColor: this.favoriteColorFormControl,
       favoriteColorAsync: undefined,
     });
   }
 
   public toggleReactiveDisabled(): void {
     if (this.reactiveDisabledState) {
-      this.reactiveForm.get('favoriteColor').enable();
+      this.favoriteColorFormControl.enable();
     } else {
-      this.reactiveForm.get('favoriteColor').disable();
+      this.favoriteColorFormControl.disable();
     }
 
     this.reactiveDisabledState = !this.reactiveDisabledState;

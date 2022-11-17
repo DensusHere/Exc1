@@ -1,12 +1,9 @@
-<div class="sky-padding-even-large">
+<div class="sky-padding-even-large" *ngIf="splitViewDemoForm">
   <h3>Split view with repeater and summary action bar</h3>
 
   <div id="screenshot-split-view">
     <sky-split-view [messageStream]="splitViewStream">
-      <sky-split-view-drawer
-        [ariaLabel]="'Transaction list'"
-        [width]="listWidth"
-      >
+      <sky-split-view-drawer [ariaLabel]="'Transaction list'">
         <sky-repeater [activeIndex]="activeIndex">
           <sky-repeater-item
             *ngFor="let item of items; let i = index"
