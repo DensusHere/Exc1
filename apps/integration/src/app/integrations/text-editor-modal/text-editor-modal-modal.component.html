@@ -1,0 +1,27 @@
+<sky-modal>
+  <sky-modal-header> Text editor within a modal </sky-modal-header>
+  <sky-modal-content>
+    <form [formGroup]="myForm">
+      <sky-text-editor
+        formControlName="textEditor"
+        name="text-editor"
+        [autofocus]="true"
+        [menus]="menus"
+        [mergeFields]="mergeFields"
+        [placeholder]="placeholder"
+        [toolbarActions]="toolbarActions"
+      >
+      </sky-text-editor>
+    </form>
+  </sky-modal-content>
+  <sky-modal-footer>
+    <button
+      class="sky-btn sky-btn-primary"
+      id="close-button"
+      type="submit"
+      (click)="instance.close()"
+    >
+      Close
+    </button>
+  </sky-modal-footer>
+</sky-modal>

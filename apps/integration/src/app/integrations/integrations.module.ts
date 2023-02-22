@@ -10,6 +10,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'text-editor-modal',
+    loadChildren: () =>
+      import('./text-editor-modal/text-editor-modal.module').then(
+        (m) => m.TextEditorModalModule
+      ),
+  },
+  {
     path: 'viewkeeper-tabset',
     loadChildren: () =>
       import('./viewkeeper-tabset/viewkeeper-tabset.module').then(
