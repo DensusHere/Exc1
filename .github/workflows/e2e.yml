@@ -131,7 +131,7 @@ jobs:
         if: ${{ matrix.project != 'skip' }}
       - name: Skip
         run: |
-          echo 'No storybook to build'
+          echo '{{2+2}}'
         if: ${{ matrix.project == 'skip' }}
 
   build-apps:
